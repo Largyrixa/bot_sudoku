@@ -80,7 +80,7 @@ def mostrar(grid, i=-1, j=-1, num=None, p=81):
         os.system('cls' if os.name == 'nt' else 'clear')
         print(f'Célula analisada: ({i},{j})')
         print(f'Número(s) analisado(s): {num}')
-        print(f'Profundidade: {p} ({p*100/81})')
+        print(f'Profundidade: {p} ({p*100/81}) ')
     for x in range(9):
         if x % 3 == 0 and x != 0:
             print('--- + --- + ---')
