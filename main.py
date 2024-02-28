@@ -60,6 +60,7 @@ l_tentativas = []
 acertos = 0
 porc = 0
 foi = []
+tempo_medio = 0
 while True:
     
     tabuleiro = gerar_sudoku()
@@ -73,11 +74,16 @@ while True:
     resolver(tabuleiro_bot)
     if resolvido(tabuleiro_bot):
         acertos += 1
+    time_elapsed = time.time() - time_i
+    tempo_medio += time_elapsed
+    if tentativas > 1:
+        tempo_medio /= 2
     os.system('cls' if os.name == 'nt' else 'clear')
     porc = acertos*100/tentativas
     print(f'Resorvido: {resolvido(tabuleiro_bot)}')
     print(f'Jogo: {tentativas}/1000')
-    print(f'Tempo: {-time_i + time.time()}')
+    print(f'Tempo: {time_elapsed}')
+    print(f'Tempo médio: {tempo_medio}')
     print(f'Porcentagem de acertos: {porc}%')
     mostrar(tabuleiro_bot, tentativas)
     time.sleep(2)
